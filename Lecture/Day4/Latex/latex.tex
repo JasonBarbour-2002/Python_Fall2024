@@ -1,0 +1,143 @@
+\documentclass{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+
+% Title page information
+\title{Lecture 4: Introduction to \LaTeX}
+\author{Jason Barbour}
+\date{\today}
+
+
+% You can add a lot more stuff here, but this is the minimum you need to get a title page
+
+% To start writing the document, you need to use the \begin{document} command
+
+\begin{document}
+
+% To create a title page, you need to use the \maketitle command
+\maketitle 
+% The \tableofcontents command will create a table of contents based on the sections and subsections in your document
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\LaTeX is a typesetting system that is widely used in academia and industry. Most published papers are written using \LaTeX. It is particularly useful for writing mathematical documents, as it has a lot of built-in support for mathematical notation.
+
+\section{Basic Commands}
+\subsection{Text Formatting}
+\LaTeX has a number of commands for formatting text. For example, you can make text \textbf{bold}, \textit{italic}, or \underline{underlined}. You can also use different fonts, \texttt{typewriter}.
+
+\subsection{Mathematical Notation}
+\LaTeX has a lot of built-in support for mathematical notation. For example, you can write equations like $x^2 + y^2 = z^2$ or \(\int_0^1 x^2 dx\). You can also write equations on their own line, like this:
+\[
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\]
+or 
+\begin{equation}
+\int x^2 dx = \frac{x^3}{3} + C
+\end{equation}
+if you don't want the equation number, you can use the \texttt{equation*} environment:
+\begin{equation*}
+\int \sin(x) dx = -\cos(x) + C
+\end{equation*}
+
+\subsection{Aligning Equations}
+You can align equations using the \texttt{aligned} environment. For example, you can write equations like this \autoref{eq:system}:
+\begin{equation}\label{eq:system}
+    \begin{aligned}
+        x + y &= 5 \\
+        \int \prod x + 32 y + 5 \cos z &= 3
+    \end{aligned}
+\end{equation}
+    
+\subsection{Greek Letters}
+You can use Greek letters in \LaTeX. For example, $\alpha$, $\beta$, $\gamma$, $\delta$, $\epsilon$, $\zeta$, $\eta$, $\theta$, $\iota$, $\kappa$, $\lambda$, $\mu$, $\nu$, $\xi$, $\pi$, $\rho$, $\sigma$, $\tau$, $\upsilon$, $\phi$, $\chi$, $\psi$, $\omega$. For the capital letters, you can just capitalize the first letter $\Gamma$, $\Delta$, $\Theta$, $\Lambda$, $\Xi$, $\Pi$, $\Sigma$, $\Upsilon$, $\Phi$, $\Psi$, $\Omega$.
+
+\subsection{Some oter symbols}
+You can use a lot of symbols in \LaTeX. For example, you can use $\in$, $\notin$, $\subset$, $\subseteq$, $\cup$, $\cap$, $\emptyset$, $\forall$, $\exists$, $\rightarrow$, $\Rightarrow$, $\leftrightarrow$, $\Leftrightarrow$, $\leq$, $\geq$, $\neq$, $\approx$, $\propto$, $\times$, $\div$, $\pm$, $\mp$, $\cdot$, $\cdots$, $\vdots$, $\ddots$, $\nabla$, $\partial$, $\int$, $\oint$, $\sum$, $\prod$, $\lim$, $\log$, $\ln$, $\exp$, $\sin$, $\cos$, $\tan$, $\cot$, $\sec$, $\csc$, $\arcsin$, $\arccos$, $\arctan$, $\sinh$, $\cosh$, $\tanh$, $\coth$.
+
+\subsection{Superscripts and Subscripts}
+You can use superscripts and subscripts in \LaTeX. For example, $x^2$ and $x_2$. You can also use multiple levels of superscripts and subscripts, like this: $x^{2^3}$ and $x_{2_3}$. You can also use both superscripts and subscripts, like this: $x^{2}_{3}$.
+
+\subsection{Biger or smaller symbols}
+There is multiple commands to change the size of text using a few commands. In order, from smallest to largest, \tiny tiny \scriptsize scriptsize \footnotesize footnotesize \small small \normalsize normalsize \large large \Large Large \LARGE LARGE \huge huge \Huge Huge
+
+\normalsize % Go back to normal size
+
+\subsection{Change the color}
+You can change the color of text in \LaTeX using the \texttt{xcolor} package. For example, you can write text in \textcolor{red}{red}, \textcolor{green}{green}, or \textcolor{blue}{blue}. You can also use RGB values, like this: \textcolor[RGB]{255,0,0}{red}, \textcolor[RGB]{0,255,0}{green}, \textcolor[RGB]{0,0,255}{blue}.
+
+\section{Labels and References}
+You can label equations, figures, and sections in \LaTeX and then refer to them later. For example, you can refer to equation (2) by writing \eqref{eq:pythagoras}. You can also refer to sections, like this: \ref{eq:pythagoras}.
+
+\begin{equation}\label{eq:pythagoras}   
+a^2 + b^2 = c^2 
+\end{equation}
+I recomend using \texttt{autoref} to make it easier to refer to different types of objects. For example, you can refer to equations, figures, and sections like this: \autoref{eq:pythagoras}. 
+\section{Figures}
+
+You can include figures in \LaTeX using the \texttt{figure} environment. For example, you can include a figure like this:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Image.jpg}
+    \caption{This is an example image}
+    \label{fig:example}
+\end{figure}
+
+You can refer to the figure like this: \autoref{fig:example}.
+
+\section{Tables}
+To create tables in \LaTeX, you can use the \texttt{tabular} environment. For example, you can create a table like this:
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        A & B & C \\
+        \hline
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        7 & 8 & 9 \\
+        \hline
+    \end{tabular}
+    \caption{This is an example table}
+    \label{tab:example}
+\end{table}
+\section{Lists}
+There is 2 types of lists in \LaTeX, the \texttt{itemize} and the \texttt{enumerate}. The \texttt{itemize} environment is for unnumbered lists, like this:
+
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+    \item Item 4
+\end{itemize}   
+and 
+\begin{enumerate}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+    \item Item 4
+\end{enumerate}
+\section{Some additional useful Packages}
+\begin{enumerate}
+    \item \texttt{tabularray}: This package provides a lot of useful features for creating tables in \LaTeX.
+    \item \texttt{cancel}: This package provides a command for canceling out terms in equations.
+    \item \texttt{algorithm} and {\texttt{algpseudocode}}: These packages provide support for writing algorithms in \LaTeX.
+    \item \texttt{listings}: This package provides support for including code in \LaTeX.
+    \item \texttt{subfig}: This package provides support for subfigures in \LaTeX.
+    \item \texttt{bm}: This package provides support for bold math symbols in \LaTeX.
+    \item \texttt{soul}: This package provides support for highlighting text in \LaTeX.
+    \item \texttt{enumitem}: This package provides support for customizing lists in \LaTeX.
+\end{enumerate}
+There are a lot of other packages available for \LaTeX, so you should explore and see what works best for you.
+\end{document}
